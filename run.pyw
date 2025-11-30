@@ -602,7 +602,7 @@ class InterfaceAnalyseur(wx.Panel):
             self.set_window_size()
             son , Fe = soundfile.read(nom_fichier_son)
             if str(float(Fe)) not in self.flux_audio.frequence_dispo:
-                wx.MessageBox("Sampling not available for audio device in ", wx.ICON_WARNING)
+                wx.MessageBox("Sampling not available for audio device in ", "Warning",wx.ICON_WARNING)
             self.flux_audio.set_frequency(Fe)
             self.maj_choix_freq()
             nb_ech = son.shape[0]
