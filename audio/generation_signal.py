@@ -678,7 +678,7 @@ class InterfaceGeneration(wx.Panel):
                            id=SLIDER_F0_SINUS,
                            value=self.f0_sinus(),
                            minValue=0,
-                           maxValue=int(self.Fe),
+                           maxValue=int(3*self.Fe/2),
                            style=style_texte)
         self.dico_slider[SLIDER_F0_SINUS] = self.f0_sinus
         gadget.Bind(wx.EVT_SCROLL,
