@@ -1,0 +1,1 @@
+Directory in which generated signals are saved.
