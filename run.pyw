@@ -85,6 +85,8 @@ PALETTE_NAME = ['viridis', 'plasma', 'inferno', 'magma', 'cividis',
 
 # https://stackoverflow.com/questions/59778250/how-to-disable-quickedit-mode-with-python
 def disable_quick_edit_mode():
+    if sys.platform == "linux":
+        return
     kernel32 = ctypes.WinDLL('kernel32')
     dword_for_std_input_handle = ctypes.wintypes.DWORD(-10) # https://learn.microsoft.com/en-us/windows/console/getstdhandle
     dword_for_enable_extended_flags = ctypes.wintypes.DWORD(0x0080) # https://learn.microsoft.com/en-us/windows/console/setconsolemode
@@ -273,7 +275,7 @@ class InterfaceAnalyseur(wx.Panel):
                         periph_off.update(nom_periph_in)
             file_name = base_path + "/config_periph.debug"
             if os.path.isfile(file_name):
-                with open("config_periph.debug", "r") as config_dbg:
+                with open(file_name, "r") as config_dbg:
                     disable_list= config_dbg.read()
                 disable_periph = disable_list.split('\n')
                 for periph in disable_periph:
