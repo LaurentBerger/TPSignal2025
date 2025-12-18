@@ -270,7 +270,7 @@ class InterfaceAnalyseur(wx.Panel):
                 with open(file_name, "w") as config_cfg: 
                     for idx, nom_periph_in in enumerate(self.idmenu_audio_in):
                         config_cfg.write(nom_periph_in + "\t1\n")
-                        periph_off[nom_periph_in] = 1
+                        periph_off.update(nom_periph_in)
             file_name = base_path + "/config_periph.debug"
             if os.path.isfile(file_name):
                 with open("config_periph.debug", "r") as config_dbg:
